@@ -12,6 +12,24 @@ from numpy import *
 import time
 import os
 
+# Screen Coordinates
+# These vary based on screen
+class Coords:
+    # restart button
+    replay_button = (720, 360)
+    # top right of dinosaur
+    dino = (487, 371)
+    # top left of obstacle box
+    obs_orig = (490, 370)
+    # initial width and height of obstacle box
+    obs_width = 105
+    obs_height = 30
+    # top left of gameplay area
+    game_orig = (400, 262)
+    # width and height of gameplay area
+    game_width = 1030 
+    game_height = 432 
+
 def main():
     factor = 7 # adjusts obstacle width over time, higher value = slower scaling
     reset = 35 # if count_r reaches this value, game resets
@@ -50,25 +68,7 @@ def main():
                 # print("progression counter =", count_p)
     except KeyboardInterrupt:
         exit()
-
-# Screen Coordinates
-# These vary based on screen
-class Coords:
-    # restart button
-    replay_button = (720, 360)
-    # top right of dinosaur
-    dino = (487, 371)
-    # top left of obstacle box
-    obs_orig = (490, 370)
-    # initial width and height of obstacle box
-    obs_width = 110
-    obs_height = 20
-    # top left of gameplay area
-    game_orig = (400, 262)
-    # width and height of gameplay area
-    game_width = 1030 
-    game_height = 432 
-    
+ 
 # Clicks restart button
 def click(coord):
     pyautogui.click(coord)
