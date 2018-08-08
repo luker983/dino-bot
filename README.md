@@ -23,7 +23,7 @@ python3 bot.py
 
 ## Tuning
 
-Using the default tuning, I was able to get a score over 2,000. Your
+My high score is 3,478, but your
 mileage may vary. Adjusting the obstacle width and speed up factor is 
 the best way to make small performance adjustments.
 
