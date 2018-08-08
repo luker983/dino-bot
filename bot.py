@@ -12,9 +12,44 @@ from numpy import *
 import time
 import os
 
+def main():
+    factor = 7 # adjusts obstacle width over time, higher value = slower scaling
+    reset = 35 # if count_r reaches this value, game resets
+    
+    print("--- Dino Bot ---")
+    print("Obstacle Box X Origin =", Coords.obs_orig[0])
+    print("Obstacle Box Width =", Coords.obs_width)
+    print("Speed Factor =", factor)
+    
+    try:
+        while True:
+            # two restarts to get window in focus
+            click(Coords.replay_button)
+            click(Coords.replay_button)
+            # moves mouse out of the way
+            click(Coords.game_orig)
 
-factor = 7 # adjusts obstacle width over time, higher value = slower scaling
-reset = 35 # if count_r reaches this value, game resets
+            # restart counter
+            count_r = 0
+            # progression counter
+            count_p = 0
+         
+            # check for obstacles, jump if obstacle is in obstacle box
+            while True:
+                # reset if game over
+                if count_r == reset: 
+                    break;
+                # if obstacle box is not all white, jump
+                if imageGrab((int(round(count_p / factor))))[0][1] != 247: 
+                    jump()    
+                    count_r = 0 
+
+                count_r += 1 
+                count_p += 1
+                # print("reset counter =", count_r)
+                # print("progression counter =", count_p)
+    except KeyboardInterrupt:
+        exit()
 
 # Screen Coordinates
 # These vary based on screen
@@ -56,34 +91,4 @@ def imageGrab(shift = 0):
     # print(a)
     return a
 
-# Game loop
-print("--- Dino Bot ---")
-print("X Origin =", Coords.obs_orig[0])
-print("X Width =", Coords.obs_width)
-print("Speed Factor =", factor)
-while True:
-    # two restarts to get window in focus
-    click(Coords.replay_button)
-    click(Coords.replay_button)
-    # moves mouse out of the way
-    click(Coords.game_orig)
-
-    # restart counter
-    count_r = 0
-    # progression counter
-    count_p = 0
-
-    print("Games =", games)
-    # check for obstacles, jump if obstacle is in obstacle box
-    while True:
-        # reset if game over
-        if count_r == reset: 
-            break;
-        if imageGrab((int(round(count_p / factor))))[0][1] != 247: 
-            jump()    
-            count_r = 0 
-
-        count_r += 1 
-        count_p += 1
-        print("reset counter =", count_r)
-        print("progression counter =", count_p)
+main()
