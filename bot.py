@@ -26,7 +26,7 @@ class Coords:
     # top left of obstacle box
     obs_orig = (490, 370)
     # initial width and height of obstacle box
-    obs_width = 90
+    obs_width = 100
     obs_height = 20
     # top left of gameplay area
     game_orig = (400, 262)
