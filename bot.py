@@ -22,7 +22,7 @@ class Coords:
     # top left of obstacle box
     obs_orig = (490, 370)
     # initial width and height of obstacle box
-    obs_width = 105
+    obs_width = 100
     obs_height = 30
     # top left of gameplay area
     game_orig = (400, 262)
@@ -31,7 +31,7 @@ class Coords:
     game_height = 432 
 
 def main():
-    factor = 7 # adjusts obstacle width over time, higher value = slower scaling
+    factor = 6.5 # adjusts obstacle width over time, higher value = slower scaling
     reset = 40 # if count_r reaches this value, game resets
     
     print("--- Dino Bot ---")
