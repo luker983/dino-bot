@@ -32,7 +32,7 @@ class Coords:
 
 def main():
     factor = 7 # adjusts obstacle width over time, higher value = slower scaling
-    reset = 35 # if count_r reaches this value, game resets
+    reset = 40 # if count_r reaches this value, game resets
     
     print("--- Dino Bot ---")
     print("Obstacle Box X Origin =", Coords.obs_orig[0])
@@ -76,7 +76,7 @@ def click(coord):
 # Makes dinosaur jump
 def jump():
     pyautogui.keyDown('space')
-    time.sleep(0.05)
+    time.sleep(0.01)
     # print("Jump")
     pyautogui.keyUp('space')
 
