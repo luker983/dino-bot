@@ -22,7 +22,7 @@ class Coords:
     # top left of obstacle box
     obs_orig = (490, 370)
     # initial width and height of obstacle box
-    obs_width = 95
+    obs_width = 78
     obs_height = 30
     # top left of gameplay area
     game_orig = (400, 262)
@@ -31,7 +31,7 @@ class Coords:
     game_height = 432 
 
 def main():
-    factor = 6 # adjusts obstacle width over time, higher value = slower scaling
+    factor = 5 # adjusts obstacle width over time, higher value = slower scaling
     reset = 40 # if count_r reaches this value, game resets
     
     print("--- Dino Bot ---")
@@ -64,8 +64,8 @@ def main():
 
                 count_r += 1 
                 count_p += 1
-                # print("reset counter =", count_r)
-                # print("progression counter =", count_p)
+                print("reset counter =", count_r)
+                print("progression counter =", count_p)
     except KeyboardInterrupt:
         exit()
  
@@ -90,7 +90,7 @@ def imageGrab(shift = 0):
     grayscale = ImageOps.grayscale(image)
     a = array(grayscale.getcolors())
     # sleep to stay consistent
-    time.sleep(0.02) 
+    time.sleep(0.01) 
     # print(a)
     return a
 
