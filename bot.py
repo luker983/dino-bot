@@ -61,7 +61,6 @@ print("--- Dino Bot ---")
 print("X Origin =", Coords.obs_orig[0])
 print("X Width =", Coords.obs_width)
 print("Speed Factor =", factor)
-games = 1
 while True:
     # two restarts to get window in focus
     click(Coords.replay_button)
@@ -79,9 +78,6 @@ while True:
     while True:
         # reset if game over
         if count_r == reset: 
-            screenstr = 'screencapture -R' + str(Coords.game_orig[0]) + ',' + str(Coords.game_orig[1]) + ',' + str(Coords.game_width) + ',' + str(Coords.game_height) + ' game' + str(games) + '.png'
-            os.system(screenstr) 
-            games += 1
             break;
         if imageGrab((int(round(count_p / factor))))[0][1] != 247: 
             jump()    
