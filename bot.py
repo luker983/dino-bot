@@ -22,7 +22,7 @@ class Coords:
     # top left of obstacle box
     obs_orig = (490, 370)
     # initial width and height of obstacle box
-    obs_width = 100
+    obs_width = 95
     obs_height = 30
     # top left of gameplay area
     game_orig = (400, 262)
@@ -31,7 +31,7 @@ class Coords:
     game_height = 432 
 
 def main():
-    factor = 6.5 # adjusts obstacle width over time, higher value = slower scaling
+    factor = 6 # adjusts obstacle width over time, higher value = slower scaling
     reset = 40 # if count_r reaches this value, game resets
     
     print("--- Dino Bot ---")
@@ -69,24 +69,27 @@ def main():
     except KeyboardInterrupt:
         exit()
  
-# Clicks restart button
+# Clicks a position on the screen
 def click(coord):
     pyautogui.click(coord)
 
 # Makes dinosaur jump
 def jump():
     pyautogui.keyDown('space')
-    time.sleep(0.01)
+    # time.sleep(0.01)
     # print("Jump")
     pyautogui.keyUp('space')
 
 # Grabs obstacle box, converts to grayscale, returns sum of pixels
 def imageGrab(shift = 0):
+    # screenshot takes in top left origin, height, and width
     screenstr = 'screencapture -R' + str(Coords.obs_orig[0]) + ',' + str(Coords.obs_orig[1]) + ',' + str(Coords.obs_width + shift) + ',' + str(Coords.obs_height) + ' grab.png' 
     os.system(screenstr) 
-    image = Image.open("grab.png")  
+    image = Image.open("grab.png") 
+    # converted to grayscale for efficiency 
     grayscale = ImageOps.grayscale(image)
     a = array(grayscale.getcolors())
+    # sleep to stay consistent
     time.sleep(0.02) 
     # print(a)
     return a
