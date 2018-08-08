@@ -2,7 +2,7 @@
 
 A simple python bot that plays Google's offline dinosaur game
 
-### Setup
+## Setup
 
 First, make sure you have all necessary libraries installed. 
 PIL is the main requirement. If the program fails due to a missing 
@@ -21,7 +21,7 @@ where you need to enter in coordinates for your specific setup.
 python3 bot.py
 ```
 
-##Tuning
+## Tuning
 
 Using the default tuning, I was able to get a score over 2,000. Your
 mileage may vary. Adjusting the obstacle width and speed up factor is 
